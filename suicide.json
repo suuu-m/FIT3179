@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 400,
+  "title": "Suicide rates vs. prevalence of depression from 1990 to 2017 in Australia",
+  "data": {
+    "url": "https://raw.githubusercontent.com/suuu-m/FIT3179/main/suicide2.csv"
+  },
+  "params": [
+    {
+      "name": "Year_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 1990,
+        "max": 2017,
+        "step": 1,
+        "name": "Year Select: "
+      }
+    }
+  ],
+  "transform": [{"filter": "datum.Year >= Year_Above"}],
+  "layer": [
+    {
+      "selection": {
+        "Year_highlight": {
+          "type": "multi",
+          "fields": ["Year"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "x": {
+          "field": "Prevalence(Rate)",
+          "type": "quantitative",
+          "axis": {"tickCount": 5},
+          "scale": {"domain": [4000, 4500]}
+        },
+        "y": {
+          "field": "Deaths(Rate)",
+          "type": "quantitative",
+          "axis": {"tickCount": 4},
+          "scale": {"domain": [5, 20]}
+        },
+        "color": {"field": "Year", "type": "nominal"},
+        "tooltip": [
+          {"field": "Deaths(Rate)", "type": "quantitative"},
+          {"field": "Prevalence(Rate)", "type": "quantitative"},
+          {"field": "Year", "type": "ordinal"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
