@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 600,
+  "height": 400,
+  "title": "Number of people with depression in Australia from 1990 to 2017",
+  "data": {
+    "url": "https://raw.githubusercontent.com/suuu-m/FIT3179/main/3179w10%20hw.2.csv"
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal"},
+    "y": {
+      "field": "Population",
+      "type": "quantitative",
+      "axis": {"tickCount": 5},
+      "scale": {"domain": [0, 1200000]}
+    },
+    "color": {"field": "Gender"},
+    "tooltip": [
+      {"field": "Population", "type": "quantitative", "format": ","},
+      {"field": "Gender", "type": "nominal"},
+      {"field": "Year", "type": "ordinal"}
+    ]
+  },
+  "config": {}
+}
