@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+    body{
+       background-color:Linen;
+     }
+     .page{
+       width: 900px;    
+       background-color: white;   
+       margin: auto;
+       padding: 50px;
+       padding-top: 35px;
+    }
+</style>
+
+<body>
+
+
+<div class="w3-container w3-teal">
+    <h1 style="text-align:center">Depression Disorder Visualizations</h1>
+</div>
+
+
+
+<div class = "page">
+    <!-- class="w3-content" -->
+<div class="w3-row w3-margin">
+
+    <h2 >Number of people with depression in the World</h2>
+<div class="w3-third">
+    <div id="choropleth_map"></div>
+</div>
+
+<div class="w3-onethird w3-container w3-medium">
+    
+    <p>
+    This map shows the number of people suffering from depression in each country in the world in 2017, and the comparison of colors shows that China and India are the countries with more people suffering from depression than other countries.
+    </p>
+</div>
+</div>
+
+<br>
+<div class="w3-row w3-margin">
+
+    <h2>Depression Disorder by Age in Australia</h2>
+<div class="w3-third">
+    <div id="bar_plot"></div>
+</div>
+<div class="w3-onethird w3-container">
+    
+    <p>This chart emphasis on the age distribution of Australian patients in 2017. Different colors are used to show the stratified number rate at different ages. Specific figures are also marked behind each bar for the audience to view and analyze.</p>
+  
+</div>
+</div>
+
+<br>
+<div class="w3-row w3-margin">
+
+    <h2>Depression Disorder by Gender in Australia</h2>
+<div class="w3-third">
+    <div id="scatter_plot"></div>
+</div>
+<div class="w3-onethird w3-container">
+    
+    <p>Different from the previous charts, this chart shows in detail the number of male and female affected in Australia from 1990 to 2017, and also there is an upward trend in the number of cases these years.</p>
+</div>
+</div>
+<br>
+
+<div class="w3-row w3-margin">
+
+    <h2>Suicide Rate vs. Prevalence Rate</h2>
+<div class="w3-third">
+    <div id="bubble_plot"></div>
+</div>
+<div class="w3-onethird w3-container">
+    
+    <p>This chart shows the prevalence of depression and suicide rates in Australia over 27 years. Viewers can also use a slider to select the year they want to look at for analysis, different colored circles represent different years.</p>
+  
+</div>
+
+</div>
+
+
+</div>
+
+
+<script type="text/javascript">
+  
+    var vis1 = "https://raw.githubusercontent.com/suuu-m/FIT3179/main/finalmap.json";
+    
+    vegaEmbed('#choropleth_map', vis1).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    
+    var vis2 = "https://raw.githubusercontent.com/suuu-m/FIT3179/main/gender.json";
+    
+    vegaEmbed('#scatter_plot', vis2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    var vis3 = "https://raw.githubusercontent.com/suuu-m/FIT3179/main/fourth.json";
+    
+    vegaEmbed('#bubble_plot', vis3).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  
+    var vis4 = "https://raw.githubusercontent.com/suuu-m/FIT3179/main/agefinal.json";
+    
+    vegaEmbed('#bar_plot', vis4).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+</body>
+</html>
